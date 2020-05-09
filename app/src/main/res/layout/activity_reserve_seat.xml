@@ -46,46 +46,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDisplayFlightReserve" />
 
-    <EditText
-        android:id="@+id/editTextReserveUser"
-        android:layout_width="272dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:hint="Enter username"
-        android:inputType="textPersonName"
-        android:textColorHint="#0071BC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFlightIDReserveSeats" />
-
-    <EditText
-        android:id="@+id/editTextReservePass"
-        android:layout_width="272dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Enter password"
-        android:inputType="textPersonName"
-        android:textColorHint="#0071BC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReserveUser" />
-
     <Button
         android:id="@+id/buttonSubmitReservation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#205493"
         android:text="Submit"
         android:textColor="#DDDAC7"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReservePass"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextFlightIDReserveSeats" />
 
     <TextView
         android:id="@+id/textViewDisplayFlightReserve"

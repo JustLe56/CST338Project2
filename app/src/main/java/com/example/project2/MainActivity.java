@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     Log.d("FLIGHT_LOG","test");
-                    Intent intent = new Intent(getApplicationContext(), ReserveSeatActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    intent.putExtra("reserveSeats",true);
                     startActivity(intent);
                 }
             }

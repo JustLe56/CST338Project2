@@ -25,13 +25,11 @@ public class ReserveSeatActivity extends AppCompatActivity {
     TextView mFlightDisplay;
     EditText mFlightID;
     EditText mFlightSeats;
-    EditText mUsername;
-    EditText mPass;
+
     Button mReserveButton;
     
     String username;
     String password;
-
     User mUser;
 
     Integer flightNumber;
@@ -49,6 +47,9 @@ public class ReserveSeatActivity extends AppCompatActivity {
                 .build()
                 .getFlightLogDAO();
 
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+        Log.d("FLIGHT_LOG",username);
         mFlightEntries = mFlightLogDAO.getFlightLogs();
         
         mFlightDisplay = findViewById(R.id.textViewDisplayFlightReserve);
@@ -56,8 +57,8 @@ public class ReserveSeatActivity extends AppCompatActivity {
         
         mFlightSeats = findViewById(R.id.editTextFlightIDReserveSeats);
         mFlightID = findViewById(R.id.editTextFlightIDReserve);
-        mUsername = findViewById(R.id.editTextReserveUser);
-        mPass = findViewById(R.id.editTextReservePass);
+        //mUsername = findViewById(R.id.editTextReserveUser);
+        //mPass = findViewById(R.id.editTextReservePass);
         
         mReserveButton = findViewById(R.id.buttonSubmitReservation);
         
@@ -72,14 +73,10 @@ public class ReserveSeatActivity extends AppCompatActivity {
                 if (mFlightLogDAO.getFlightLogsByNumber(flightNumber) != null){ //check if flight number is valid
                     FlightLog desiredFlight = mFlightLogDAO.getFlightLogsByNumber(flightNumber);
                     Log.d("FLIGHT_LOG", desiredFlight.toString());
-                    if (checkForUserInDatabase() ) { //check if user exists
-                        if (!validatePassword()) { //check if pass is good
-                            Toast.makeText(ReserveSeatActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
-                        } else if (desiredFlight.enoughSeats(seatsNeeded)) { //check if flight has enough seats, possible that unable to get specific flight leading to no seats to look up
+                    if (desiredFlight.enoughSeats(seatsNeeded)) { //check if flight has enough seats, possible that unable to get specific flight leading to no seats to look up
                             reserveConfirmAlert(desiredFlight);
-                        }else{
-                            Toast.makeText(ReserveSeatActivity.this, "Not enough seats available", Toast.LENGTH_SHORT).show();
-                        }
+                    }else {
+                        Toast.makeText(ReserveSeatActivity.this, "Not enough seats available", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     Toast.makeText(getApplicationContext(), "Flight " +flightNumber+ " not found", Toast.LENGTH_SHORT).show();
@@ -87,22 +84,22 @@ public class ReserveSeatActivity extends AppCompatActivity {
 
             }
         });
-        
+
     }
 
-    private boolean checkForUserInDatabase(){
-        mUser = mFlightLogDAO.getUserByUsername(username);
-        if(mUser == null){
-            Toast.makeText(this,"no user " + username + "found",Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//    private boolean checkForUserInDatabase(){
+//        mUser = mFlightLogDAO.getUserByUsername(username);
+//        if(mUser == null){
+//            Toast.makeText(this,"no user " + username + "found",Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+//
+//        return true;
+//    }
 
-        return true;
-    }
-
-    private boolean validatePassword(){
-        return mUser.getPassword().equals(password);
-    }
+//    private boolean validatePassword(){
+//        return mUser.getPassword().equals(password);
+//    }
 
     private void getValuesFromDisplay(){
         try{
@@ -116,9 +113,9 @@ public class ReserveSeatActivity extends AppCompatActivity {
         } catch (NumberFormatException e){
             Log.d("FLIGHT_LOG", "Couldn't convert seats number");
         }
-
-        username = mUsername.getText().toString();
-        password = mPass.getText().toString();
+        mUser = mFlightLogDAO.getUserByUsername(username);
+        username = mUser.getUsername();
+        password = mUser.getPassword();
     }
 
     private void refreshDisplay(){
@@ -174,8 +171,6 @@ public class ReserveSeatActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Reservation Canceled", Toast.LENGTH_SHORT).show();
             }
         });
-
-
         alertBuilder.create().show();
     }
 }
