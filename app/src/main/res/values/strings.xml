@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Project #2</string>
+    <string name="otter_airlines">Otter Airlines</string>
+    <string name="login">Login</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_password">Enter password</string>
+    <string name="sign_in">Reserve Seat</string>
+    <string name="noFlightMessage">No Flights Found</string>
+</resources>

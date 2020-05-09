@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FlightInfoActivity">
+
+    <EditText
+        android:id="@+id/editTextFlightIDReserveSeats"
+        android:layout_width="275dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter amount of seats to reserve"
+        android:inputType="textPersonName"
+        android:textColorHint="#0071BC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFlightIDReserve" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="130dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="4dp"
+        android:text="Flights"
+        android:textColor="#205493"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editTextFlightIDReserve"
+        android:layout_width="275dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Enter flight number"
+        android:inputType="textPersonName"
+        android:textColorHint="#0071BC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDisplayFlightReserve" />
+
+    <EditText
+        android:id="@+id/editTextReserveUser"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Enter username"
+        android:inputType="textPersonName"
+        android:textColorHint="#0071BC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFlightIDReserveSeats" />
+
+    <EditText
+        android:id="@+id/editTextReservePass"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter password"
+        android:inputType="textPersonName"
+        android:textColorHint="#0071BC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextReserveUser" />
+
+    <Button
+        android:id="@+id/buttonSubmitReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#205493"
+        android:text="Submit"
+        android:textColor="#DDDAC7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextReservePass"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/textViewDisplayFlightReserve"
+        android:layout_width="333dp"
+        android:layout_height="182dp"
+        android:text="Flight List"
+        android:textColor="#205493"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

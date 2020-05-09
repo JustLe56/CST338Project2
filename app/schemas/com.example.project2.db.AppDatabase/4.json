@@ -1,0 +1,114 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "5dfa20f4ada08e37ff453f000019ed3a",
+    "entities": [
+      {
+        "tableName": "FLIGHTLOG_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mLogID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mFlightNum` INTEGER NOT NULL, `mDepartLoc` TEXT, `mDepartTime` TEXT, `mArrivalLoc` TEXT, `mAvaliableSeats` INTEGER NOT NULL, `mPricePerSeat` REAL NOT NULL, `mUserId` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "mLogID",
+            "columnName": "mLogID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mFlightNum",
+            "columnName": "mFlightNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mDepartLoc",
+            "columnName": "mDepartLoc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mDepartTime",
+            "columnName": "mDepartTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mArrivalLoc",
+            "columnName": "mArrivalLoc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mAvaliableSeats",
+            "columnName": "mAvaliableSeats",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mPricePerSeat",
+            "columnName": "mPricePerSeat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mUserId",
+            "columnName": "mUserId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mLogID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "USER_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mUserId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mUsername` TEXT, `mPassword` TEXT, `reservedFlightIDs` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "mUserId",
+            "columnName": "mUserId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mUsername",
+            "columnName": "mUsername",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mPassword",
+            "columnName": "mPassword",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reservedFlightIDs",
+            "columnName": "reservedFlightIDs",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "mUserId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5dfa20f4ada08e37ff453f000019ed3a')"
+    ]
+  }
+}
