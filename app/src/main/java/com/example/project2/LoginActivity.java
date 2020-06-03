@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         mButton = findViewById(R.id.signButton);
         Intent intent = getIntent();
         final boolean ADMIN = intent.getBooleanExtra("needAdminAuth",false);
+        final boolean SEATS = intent.getBooleanExtra("reserveSeats",false);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,14 +63,25 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
-
+                else if (SEATS) { //regular user trying to access making reservation
+                    if (checkForUserInDatabase()) { //regular user trying to access reservation cancel
+                        if (!validatePassword()) {
+                            Toast.makeText(LoginActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Welcome, " + mUser.getUsername(), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), ReserveSeatActivity.class); //user has to log in
+                            intent.putExtra("username", mUser.getUsername().toString());
+                            startActivity(intent);
+                        }
+                    }
+                }
                 else if (checkForUserInDatabase()){ //regular user trying to access reservation cancel
                     if (!validatePassword()){
                         Toast.makeText(LoginActivity.this, "Invalid password" , Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "Welcome, " +mUser.getUsername() , Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),CancelResActivity.class); //user has to log in to admin before modifying system
+                        Intent intent = new Intent(getApplicationContext(),CancelResActivity.class); //user has to log in
                         intent.putExtra("username",mUser.getUsername().toString());
                         startActivity(intent);
                     }

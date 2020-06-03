@@ -11,6 +11,7 @@
         android:layout_width="235dp"
         android:layout_height="278dp"
         android:text="user flights"
+        android:textColor="#205493"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +23,7 @@
         android:layout_width="109dp"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
+        android:textColor="#205493"
         android:text="Your Flights"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,24 +34,27 @@
         android:id="@+id/buttonCancelRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="188dp"
         android:text="Cancel Reservation"
+        android:backgroundTint="#205493"
+        android:textColor="#DDDAC7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCancelFlightNum" />
 
     <EditText
         android:id="@+id/editTextCancelFlightNum"
         android:layout_width="286dp"
         android:layout_height="45dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Enter Flight Number to Cancel"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCancelRes"
+        android:textColorHint="#205493"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUserFlights"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserFlights" />
 </androidx.constraintlayout.widget.ConstraintLayout>

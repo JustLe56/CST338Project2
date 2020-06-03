@@ -12,7 +12,7 @@
         android:layout_height="62dp"
         android:text="@string/otter_airlines"
         android:textAlignment="center"
-        android:textColor="#112E51"
+        android:textColor="#205493"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
